@@ -1,14 +1,17 @@
 package com.example.myapplication
 
+import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.GestureDetector
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
 import android.view.MotionEvent
+import android.view.View
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.Switch
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import androidx.fragment.app.Fragment
 import com.example.myapplication.fragments.*
@@ -16,6 +19,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
+    val REQUEST_IMAGE_CAPTURE = 1
+    internal lateinit var btnSwitch:Switch
 
 
     private lateinit var detector: GestureDetectorCompat
@@ -24,11 +29,31 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        btnSwitch = findViewById<View>(R.id.switch1) as Switch
+
+        btnSwitch.setOnClickListener{
+            if(btnSwitch.isChecked) {
+                Toast.makeText(this@MainActivity,"Camera ON",Toast.LENGTH_SHORT).show()
+                val takePicture = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                startActivityForResult(takePicture, REQUEST_IMAGE_CAPTURE)
+            }
+            else {
+                Toast.makeText(this@MainActivity,"Camera OFF",Toast.LENGTH_LONG).show()
+            }
+        }
+
+
         val homepage=Homepage()
         val search=Search()
         val playing=Playing_now()
         val profile=Profile()
         val dj=DJ()
+
+     //   findViewById<Button>(R.id.btnShoot).setOnClickListener {
+      //      val takePicture = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+       //     startActivityForResult(takePicture, REQUEST_IMAGE_CAPTURE)
+       // }
+
 
         makeCurrentFragment(homepage)
 
@@ -48,6 +73,17 @@ class MainActivity : AppCompatActivity() {
     detector = GestureDetectorCompat(this, GestureListener())
 
     }
+
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            //val imageBitmap = data!!.extras!!.get("data") as Bitmap
+            //findViewById<ImageView>(R.id.imageView).setImageBitmap(imageBitmap)
+        }
+    }
+
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         return if (detector.onTouchEvent(event)){

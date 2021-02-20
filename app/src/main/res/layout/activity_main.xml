@@ -11,7 +11,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bottom_navigation"
-        android:background="@color/black"/>
+        android:background="@color/black">
+
+    </FrameLayout>
+
+       <!-- <Button
+            android:id="@+id/btnShoot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ShootButton"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageView" />-->
 
     <Switch
         android:id="@+id/switch1"
@@ -24,7 +37,18 @@
         android:textColor="#FAF6F6"
         android:textColorHighlight="@color/white"
         android:textColorHint="@color/black"
-        android:textColorLink="@color/white" />
+        android:textColorLink="@color/white"
+        android:checked="false"/> <!-- set the current state of the Switch-->
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="248dp"
+        android:layout_height="258dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

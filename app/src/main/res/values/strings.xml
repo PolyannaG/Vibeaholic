@@ -24,4 +24,6 @@
     <string name="suggested_albums">Suggested albums</string>
     <string name="suggested_songs">Suggested Songs</string>
     <string name="welcome">Welcome!</string>
+
+    <string name="ShootButton">Λήψη Φωτογραφίας</string>
 </resources>
