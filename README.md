@@ -8,7 +8,7 @@ Below you can see a demo of the app:
 https://user-images.githubusercontent.com/63066416/119129202-43e94880-ba3f-11eb-832d-fea7a7c6c5bd.mp4
 
 
-Our project is an android music app called Vibeaholic that consists of two parts:
+Our project is an android music app prototype called Vibeaholic that consists of two parts:
 * **Everyday mode**: The user can listen to songs,search for songs etc like an ordinary music app but also activate "Feel me" mode
 that enables camera, microphone and/or smartwatch in order to determine his feelings and suggest songs/playlists
 depending on his mood
